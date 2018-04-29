@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kamikazee Tickets</h1>
+
+<%= link_to 'New Ticket', new_ticket_path %>
+<br/>
+<br/>
+<table>
+<thead bgcolor = "red">
+    <tr>
+
+      <th><font color="#fff">Ticket name</font></th>
+      <th><font color="#fff">Phone Number</font></th>
+      <th><font color="#fff">Seat #</font></th>
+      <th><font color="#fff">Address</font></th>
+      <th><font color="#fff">Price</font></th>
+      <th><font color="#fff">Email address</font></th>
+      <th colspan="3"><font color="#fff">Actions</font></th>
+    </tr>
+        </thead>
+
+  <tbody bgcolor = "pink">
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.ticket_name %></td>
+        <td><%= ticket.phone %></td>
+        <td><%= ticket.seat_seq_id %></td>
+        <td><%= ticket.address %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.email_address %></td>
+        <td><%= link_to 'Show', ticket %></td>
+        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
